@@ -1,7 +1,7 @@
 import json
 import psutil
-from config import interval
 from config import file_name
+from config import interval
 from config import output
 from datetime import datetime
 from time import sleep
