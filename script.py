@@ -1,9 +1,9 @@
-import json
 from config import file_name
 from config import interval
 from config import output
-import psutil
 from datetime import datetime
+import json
+import psutil
 from time import sleep
 
 
