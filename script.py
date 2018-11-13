@@ -1,10 +1,10 @@
-from datetime import datetime
-from time import sleep
+import json
+import psutil
 from config import interval
 from config import file_name
 from config import output
-import psutil
-import json
+from datetime import datetime
+from time import sleep
 
 
 def status():
