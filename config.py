@@ -1,4 +1,4 @@
-interval = 300
+interval = 5
 output = "text"
 
 if output == "json":
