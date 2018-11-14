@@ -7,7 +7,7 @@ import psutil
 import time
 
 
-class GetStatus:
+class GetStatus(object):
 
     def getTimestamp(self):
         timeInit = time.time()
