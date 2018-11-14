@@ -2,17 +2,17 @@ from config import file_name
 from config import interval
 from config import output
 import datetime
-import time
-import psutil
 import json
+import psutil
+import time
 
 
 class GetStatus:
+
     def getTimestamp(self):
         timeInit = time.time()
-        timestamp = datetime.datetime.fromtimestamp(timeInit).strftime(
-            "%Y-%m-%d %H:%M:%S"
-        )
+        timestamp = datetime.datetime.fromtimestamp(timeInit).\
+            strftime('%Y-%m-%d %H:%M:%S')
         return timestamp
 
     def getCPU(self):
@@ -32,25 +32,22 @@ class GetStatus:
 
 
 class WriteToFile(GetStatus):
+
     def writeTXT(self):
         sc = 1
         while True:
             output_file = open(file_name, "a")
-            output_file.write(
-                 "SNAPSHOT: "
-                 + str(sc)
-                 + " "
-                 + GetStatus.getTimestamp(self)
-                 + "  CPU percent: "
-                 + GetStatus.getCPU(self)
-                 + "  Overall_virtual_memory_size: "
-                 + GetStatus.getVirtMemTotal(self)
-                 + "  Overall_virtual_memory_usage: "
-                 + GetStatus.getVirtMemUsed(self)
-                 + "  IO_information: "
-                 + GetStatus.getIOInf(self)
-                 + "  Network_information:"
-                 + GetStatus.getNetConn(self)[0])
+            output_file.write("SNAPSHOT: " + str(sc))
+            output_file.write(GetStatus.getTimestamp(self))
+            output_file.write("  CPU percent: " + GetStatus.getCPU(self))
+            output_file.write("  Overall_virtual_memory_size: ")
+            output_file.write(GetStatus.getVirtMemTotal(self))
+            output_file.write("  Overall_virtual_memory_usage: ")
+            output_file.write(GetStatus.getVirtMemUsed(self))
+            output_file.write("  IO_information: ")
+            output_file.write(GetStatus.getIOInf(self))
+            output_file.write("  Network_information:")
+            output_file.write(GetStatus.getNetConn(self)[0])
             output_file.close()
             time.sleep(int(interval))
             sc += 1
@@ -59,27 +56,23 @@ class WriteToFile(GetStatus):
         sc = 1
         while True:
             jsonf = open(file_name, "a")
-            jsonf.write("\n{ \n")
-            jsonf.write(
-                '\n"SNAPSHOT {0}": "{1}",
-                 \n'.format(sc, GetStatus.timestamp(self))
-            )
+            jsonf.write('\n{ \n')
+            jsonf.write('\n"SNAPSHOT {0}" : "{1}",\n'.
+                        format(sc, GetStatus.timestamp(self)))
             jsonf.write('\n"CPU":\n')
             json.dump({"Percent": GetStatus.getCPU(self)}, jsonf, indent=1)
             jsonf.write('\n,"Overall":\n')
-            json.dump(
-                {"Virt Mem Size": GetStatus.getVirtMemTotal(self)}, jsonf, indent=1
-            )
+            json.dump({"Virt Mem Size": GetStatus.
+                      getVirtMemTotal(self)}, jsonf, indent=1)
             jsonf.write('\n,"Overall": \n')
-            json.dump(
-                {"Virt Mem Used Size": GetStatus.getVirtMemUsed(self)}, jsonf, indent=1
-            )
+            json.dump({"Virt Mem Used Size": GetStatus.
+                      getVirtMemUsed(self)}, jsonf, indent=1)
             jsonf.write('\n,"IO":\n')
             json.dump({"Stat": GetStatus.getIOInf(self)}, jsonf, indent=1)
             jsonf.write('\n,"Network":\n')
             json.dump({"Stat": GetStatus.getNetConn(self)}, jsonf, indent=1)
             jsonf.write("\n\n")
-            jsonf.write("\n} \n")
+            jsonf.write('\n} \n')
             jsonf.close()
             sc += 1
             time.sleep(int(interval))
