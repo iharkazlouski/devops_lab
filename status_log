@@ -1,0 +1,12 @@
+
+SNAPSHOT: 12018-11-16 13:31:00  CPU percent: 0.0%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.46875Mb  IO_information: sdiskio(read_count=11297, write_count=8278, read_bytes=305849344, write_bytes=68903936, read_time=78787, write_time=18332, read_merged_count=14, write_merged_count=471, busy_time=51547)  Network_information:s
+
+SNAPSHOT: 22018-11-16 13:31:05  CPU percent: 0.0%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.70703125Mb  IO_information: sdiskio(read_count=11297, write_count=8278, read_bytes=305849344, write_bytes=68903936, read_time=78787, write_time=18332, read_merged_count=14, write_merged_count=471, busy_time=51547)  Network_information:s
+
+SNAPSHOT: 32018-11-16 13:31:10  CPU percent: 0.2%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.70703125Mb  IO_information: sdiskio(read_count=11297, write_count=8278, read_bytes=305849344, write_bytes=68903936, read_time=78787, write_time=18332, read_merged_count=14, write_merged_count=471, busy_time=51547)  Network_information:s
+
+SNAPSHOT: 42018-11-16 13:31:15  CPU percent: 0.4%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.70703125Mb  IO_information: sdiskio(read_count=11297, write_count=8278, read_bytes=305849344, write_bytes=68903936, read_time=78787, write_time=18332, read_merged_count=14, write_merged_count=471, busy_time=51547)  Network_information:s
+
+SNAPSHOT: 52018-11-16 13:31:20  CPU percent: 0.4%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.70703125Mb  IO_information: sdiskio(read_count=11297, write_count=8281, read_bytes=305849344, write_bytes=68909056, read_time=78787, write_time=18354, read_merged_count=14, write_merged_count=471, busy_time=51569)  Network_information:s
+
+SNAPSHOT: 62018-11-16 13:31:25  CPU percent: 0.4%  Overall_virtual_memory_size: 991.69921875Mb  Overall_virtual_memory_usage: 102.70703125Mb  IO_information: sdiskio(read_count=11297, write_count=8281, read_bytes=305849344, write_bytes=68909056, read_time=78787, write_time=18354, read_merged_count=14, write_merged_count=471, busy_time=51569)  Network_information:s

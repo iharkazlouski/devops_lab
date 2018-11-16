@@ -37,6 +37,7 @@ class WriteToFile(GetStatus):
         sc = 1
         while True:
             output_file = open(file_name, "a")
+            output_file.write("\n")
             output_file.write("SNAPSHOT: " + str(sc))
             output_file.write(GetStatus.getTimestamp(self))
             output_file.write("  CPU percent: " + GetStatus.getCPU(self))
@@ -48,6 +49,7 @@ class WriteToFile(GetStatus):
             output_file.write(GetStatus.getIOInf(self))
             output_file.write("  Network_information:")
             output_file.write(GetStatus.getNetConn(self)[0])
+            output_file.write('\n')
             output_file.close()
             time.sleep(int(interval))
             sc += 1
