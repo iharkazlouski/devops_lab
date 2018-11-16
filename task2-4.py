@@ -10,4 +10,4 @@ for x in lis:
     if x in d:
         print(' '.join(map(str, d[x])))
     else:
-print(-1)
+	print(-1)
