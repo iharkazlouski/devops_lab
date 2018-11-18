@@ -1,6 +1,7 @@
 import datetime
 import getpass
 import requests
+import sys
 
 user = input("Input Github Login: ")
 password = getpass.getpass()
@@ -40,6 +41,7 @@ while 'next' in req.links.keys():
                        auth=(user, password))
     out += req.json()
 
+myjson = out
 
 def version():
     print("Version 1.01")
@@ -73,42 +75,23 @@ def basic(myjson):
         print("Pull request " + str(myjson["number"]) + " is: merged")
 
 
-def callingRequest(option, input, myjson):
-    for i in myjson:
-        if i["user"]["login"] == input[2]:
-            if option == '--dayCreated':
-                dayCreated(i, "created_at")
-                break
-            elif option == '--hourCreated':
-                hourCreated(i, "created_at")
-                break
-            elif option == '--userCreated':
-                userCreated(i)
-                break
-            elif option == '--attachedLabels':
-                attachedLabels(i)
-                break
-            elif option == '--basic':
-                basic(i)
-                break
-            else:
-                print("Error,please input again (use pr-stats (-h ))")
+for i in myjson:
+    if i["user"]["login"] == sys.argv[2]:
+        if sys.argv[1] == '--dayCreated':
+            dayCreated(i, "created_at")
             break
-
-
-while True:
-    try:
-        humanInput = input().split(' ')
-        if humanInput[0] != 'pr-stats':
-            raise Exception("Error please input again (use pr-stats (-h))")
-        options = humanInput[1]
-        if options == '--version':
-            version()
-        elif options == '-h' or options == '--help':
-            help_usage()
-        elif options == '-q' or options == '--quit':
+        elif sys.argv[1] == '--hourCreated':
+            hourCreated(i, "created_at")
             break
-        elif len(humanInput) == 3:
-            callingRequest(options, humanInput, out)
-    except Exception as error:
-        print(error)
+        elif sys.argv[1] == '--userCreated':
+            userCreated(i)
+            break
+        elif sys.argv[1] == '--attachedLabels':
+            attachedLabels(i)
+            break
+        elif sys.argv[1] == '--basic':
+            basic(i)
+            break
+        else:
+            print("Error,please input again (use pr-stats (-h ))")
+        break
