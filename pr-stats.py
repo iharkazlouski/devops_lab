@@ -43,6 +43,7 @@ while 'next' in req.links.keys():
 
 myjson = out
 
+
 def version():
     print("Version 1.01")
 
