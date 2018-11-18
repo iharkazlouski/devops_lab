@@ -1,10 +1,10 @@
-import sys
-import subprocess
 import json
+import subprocess
+import sys
 import yaml
 
 
-class PythonFields:
+class PythonFields(object):
     def __init__(self):
         self.version = sys.version
         self.pyenv = subprocess.getoutput("pyenv version-name")
@@ -15,12 +15,14 @@ class PythonFields:
         self.packages = subprocess.getoutput("pip freeze")
 
     def __str__(self):
-        return (str("python ver. " + self.version + "\npyenv ver.: "    # noqa
-                + self.pyenv + "\nwhere is python bin: "    # noqa
-                + self.pythonBin + "\npip location: "    # noqa
-                + self.pipLocal + "\nvirtual env: " + self.virtualEnv    # noqa
-                + "\nsite-packages location: " + self.sitePackages    # noqa
-                + "\npackages:\n" + self.packages))    # noqa
+        a = "python ver. " + str(self.version)
+        b = "\npyenv ver.: " + str(self.pyenv)
+        c = "\nwhere is python bin : " + str(self.pythonBin)
+        d = "\npip location : " + str(self.pipLocal)
+        e = "\nvirtualenv: " + str(self.virtualEnv)
+        f = "\n site-packages location: " + str(self.sitePackages)
+        g = "\npackages: " + str(self.packages)
+        return(a + b + c + d + e + f + g)
 
 
 pf = PythonFields()
