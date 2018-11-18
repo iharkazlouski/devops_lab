@@ -10,4 +10,4 @@ def is_leap(year):
 
 
 y = int(input("Input year: "))
-is_leap(y)
+print(is_leap(y))

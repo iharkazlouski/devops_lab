@@ -1,4 +1,4 @@
-fileInput = open('/home/student/input')
+fileInput = open('input')
 number = int(fileInput.read())
 
 
@@ -56,5 +56,5 @@ def primfacs(number):
 
 print(primfacs(number))
 
-with open("/home/student/output", "a") as output:
+with open("output", "a") as output:
     output.write("%d" % primfacs(number))
