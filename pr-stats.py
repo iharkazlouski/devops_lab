@@ -27,7 +27,7 @@ def help_usage():
            --basic                    Basic stats about merged/closed rate""")
 
 
-help_usage()
+# help_usage()
 
 url = 'https://api.github.com/repos/alenaPy/devops_lab/pulls?state=all'
 req = requests.get(url, auth=(user, password))
@@ -78,14 +78,19 @@ def callingRequest(option, input, myjson):
         if i["user"]["login"] == input[2]:
             if option == '--dayCreated':
                 dayCreated(i, "created_at")
+                break
             elif option == '--hourCreated':
                 hourCreated(i, "created_at")
+                break
             elif option == '--userCreated':
                 userCreated(i)
+                break
             elif option == '--attachedLabels':
                 attachedLabels(i)
+                break
             elif option == '--basic':
                 basic(i)
+                break
             else:
                 print("Error,please input again (use pr-stats (-h ))")
             break
