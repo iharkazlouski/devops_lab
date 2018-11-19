@@ -1,4 +1,3 @@
-import totest
 import unittest
 
 
@@ -10,4 +9,5 @@ class TestUM(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    import totest
     unittest.main()
